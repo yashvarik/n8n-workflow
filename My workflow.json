@@ -1,0 +1,152 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Project info",
+        "formDescription": "Enter your Project information",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Name",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Roll no",
+              "fieldType": "number",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Project",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Tech"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.5,
+      "position": [
+        0,
+        0
+      ],
+      "id": "250374bc-30d3-4eb4-8b97-fd8c4a7adb25",
+      "name": "On form submission",
+      "webhookId": "d88a1659-406b-492f-9416-7c84cae9e531"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1gZY1E0PIoz7Nc4UC-i8R5LQr1E5utt6_dLVvKuQdKEg",
+          "mode": "list",
+          "cachedResultName": "projectinfospreadsheet",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1gZY1E0PIoz7Nc4UC-i8R5LQr1E5utt6_dLVvKuQdKEg/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1gZY1E0PIoz7Nc4UC-i8R5LQr1E5utt6_dLVvKuQdKEg/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $json.Name }}",
+            "roll no": "={{ $json[\"Roll no\"] }}",
+            "project": "={{ $json.Project }}",
+            "tech": "={{ $json.Tech }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "roll no",
+              "displayName": "roll no",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "project",
+              "displayName": "project",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "tech",
+              "displayName": "tech",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        208,
+        0
+      ],
+      "id": "9d59120d-1dc1-484e-9ba4-8077cc8f557c",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "44aRfaIeeSXcMi8F",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "98dcd2ef-104d-46a1-b83e-e11aa402114a",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "e3c0e274cb6ff3d7ec4e9ac21dddfac99f11c3e4ab8c17d33a550c71ee21cbb7"
+  },
+  "id": "GrebJp9Bn5NzP1Ql",
+  "tags": []
+}
